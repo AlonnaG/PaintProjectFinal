@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="closeMenuItm" mnemonicParsing="false" onAction="#closeApp" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <ToggleButton fx:id="lineBtn" mnemonicParsing="false" onAction="#selectShape" selected="true" text="Line" />
+                  <ToggleButton fx:id="rectBtn" mnemonicParsing="false" onAction="#selectShape" text="Rect">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="ToolBar" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="ovalBtn" mnemonicParsing="false" onAction="#selectShape" text="Oval" toggleGroup="$ToolBar" />
+                  <ToggleButton fx:id="eraseBtn" mnemonicParsing="false" onAction="#selectShape" text="Erase" toggleGroup="$ToolBar" />
+                  <Separator prefHeight="27.0" prefWidth="57.0" />
+                  <Slider fx:id="mySlide" majorTickUnit="2.0" max="20.0" min="1.0" minorTickCount="10" showTickLabels="true" snapToTicks="true" />
+                  <Separator prefHeight="27.0" prefWidth="56.0" />
+                  <ColorPicker fx:id="myColorPicker" />
+               </items>
+            </ToolBar>
+            <Canvas fx:id="myCanvas" height="371.0" onMousePressed="#startDrawing" onMouseReleased="#drawShap" width="600.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
